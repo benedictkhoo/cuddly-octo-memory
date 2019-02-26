@@ -3,6 +3,9 @@
 A simple app to jot notes or doodles
 
 ## Project setup
+
+This project uses Git LFS. If you have not install it yet, please refer to <https://git-lfs.github.com>.
+
 ```
 npm install
 ```
