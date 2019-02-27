@@ -1,0 +1,29 @@
+dist: xenial
+
+sudo: false
+
+language: node_js
+
+addons:
+  chrome: stable
+
+cache:
+  npm: true
+  directories:
+    - ~/.cache
+
+jobs:
+  include:
+    - stage: unit tests
+      script: npm run test:unit
+      name: 'doodle-jot unit tests'
+    - stage: e2e tests
+      script: npm run test:e2e -- --headless
+      name: 'doodle-jot e2e tests'
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: npm run build
+  on:
+    branch: master
